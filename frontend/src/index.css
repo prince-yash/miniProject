@@ -1,0 +1,263 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Rajdhani', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #0a0a0a;
+  color: #ffffff;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Custom CSS Variables for Futuristic Theme */
+:root {
+  --cyber-blue: #00d4ff;
+  --cyber-purple: #8a2be2;
+  --cyber-green: #00ff88;
+  --cyber-pink: #ff006e;
+  --cyber-orange: #ff6b00;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --dark-bg: #0a0a0a;
+  --dark-panel: #1a1a2e;
+  --glow-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+/* Animated Space Background */
+.space-bg {
+  background: linear-gradient(135deg, 
+    #0a0a0a 0%, 
+    #16213e 25%, 
+    #1a1a2e 50%, 
+    #16213e 75%, 
+    #0a0a0a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.space-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, var(--cyber-blue), transparent),
+    radial-gradient(2px 2px at 40px 70px, var(--cyber-purple), transparent),
+    radial-gradient(1px 1px at 90px 40px, var(--cyber-green), transparent),
+    radial-gradient(1px 1px at 130px 80px, var(--cyber-pink), transparent),
+    radial-gradient(2px 2px at 160px 30px, var(--cyber-orange), transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: starsMove 20s linear infinite;
+  z-index: -1;
+}
+
+@keyframes starsMove {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-100px); }
+}
+
+/* Glassmorphism Utilities */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+}
+
+.glass-dark {
+  background: rgba(26, 26, 46, 0.8);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+}
+
+/* Neon Glow Effects */
+.neon-blue {
+  box-shadow: 0 0 10px var(--cyber-blue), 0 0 20px var(--cyber-blue), 0 0 30px var(--cyber-blue);
+  border: 1px solid var(--cyber-blue);
+}
+
+.neon-purple {
+  box-shadow: 0 0 10px var(--cyber-purple), 0 0 20px var(--cyber-purple);
+  border: 1px solid var(--cyber-purple);
+}
+
+.neon-green {
+  box-shadow: 0 0 10px var(--cyber-green), 0 0 20px var(--cyber-green);
+  border: 1px solid var(--cyber-green);
+}
+
+.neon-pink {
+  box-shadow: 0 0 10px var(--cyber-pink), 0 0 20px var(--cyber-pink);
+  border: 1px solid var(--cyber-pink);
+}
+
+.neon-orange {
+  box-shadow: 0 0 10px var(--cyber-orange), 0 0 20px var(--cyber-orange);
+  border: 1px solid var(--cyber-orange);
+}
+
+.neon-purple {
+  box-shadow: 0 0 10px var(--cyber-purple), 0 0 20px var(--cyber-purple);
+  border: 1px solid var(--cyber-purple);
+}
+
+/* Text Glow */
+.text-glow {
+  text-shadow: 0 0 10px currentColor;
+}
+
+.text-cyber {
+  font-family: 'Orbitron', monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Button Animations */
+.cyber-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.cyber-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.cyber-btn:hover::before {
+  left: 100%;
+}
+
+.cyber-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.2);
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Pulse Animation */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px currentColor; }
+  50% { box-shadow: 0 0 20px currentColor, 0 0 30px currentColor; }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Tab Styles */
+.tab-active {
+  background: linear-gradient(135deg, var(--cyber-blue), var(--cyber-purple));
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+  color: white;
+}
+
+.tab-inactive {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+}
+
+.tab-inactive:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--cyber-blue), var(--cyber-purple));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--cyber-purple), var(--cyber-pink));
+}
+
+/* Canvas Glow Effect */
+.canvas-active {
+  box-shadow: 0 0 20px var(--cyber-blue), 0 0 40px var(--cyber-blue);
+  border: 2px solid var(--cyber-blue);
+  transition: all 0.3s ease;
+}
+
+/* Particle Effect for Backgrounds */
+@keyframes particleFloat {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-10px) rotate(360deg); opacity: 0; }
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--cyber-blue);
+  border-radius: 50%;
+  animation: particleFloat 15s linear infinite;
+}
+
+.particle:nth-child(odd) {
+  background: var(--cyber-purple);
+  animation-delay: -5s;
+  animation-duration: 12s;
+}
+
+.particle:nth-child(3n) {
+  background: var(--cyber-green);
+  animation-delay: -10s;
+  animation-duration: 18s;
+}
+
+/* Fade-in animation for popups */
+@keyframes fade-in {
+  0% { opacity: 0; transform: translateY(-10px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out;
+}

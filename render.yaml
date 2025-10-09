@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: educanvas-backend
+    env: node
+    plan: free
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: PORT
+        value: 5000
+  - type: static
+    name: educanvas-frontend
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: frontend/build
+    envVars:
+      - key: REACT_APP_BACKEND_URL
+        value: https://educanvas-backend.onrender.com
